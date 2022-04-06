@@ -1,0 +1,20 @@
+<select [(ngModel)]="selectedAB" 
+(ngModelChange)="countryUpdated()"
+class="form-control">
+    <option *ngFor="let country of countryListArray"
+    [value]="country.ab">{{country.name}}</option>
+</select>
+
+<ul>
+    <li>{{data.confirmed | number}}</li>
+    <li>{{data.country}}</li>
+    <li>{{data.capital_city}}</li>
+    <li>{{data.updated}}</li>
+    <li>{{data.deaths}}</li>
+</ul>
+
+<div *ngFor="let user of users">
+    <app-user-info [name]="user.name" (onNameClicked)="displayName($event)"></app-user-info>
+</div>
+<!--$event e de fapt ce trasnmitem la emit, deci la functie treb sa fie tipul de date
+coresp -->

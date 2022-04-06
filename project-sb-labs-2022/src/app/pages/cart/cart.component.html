@@ -1,0 +1,66 @@
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  </head>
+  <section class="pt-5 pb-5" style="background-color: #f4f5f7;font-family: 'Montserrat', Helvetica, sans-serif;
+  ">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-12" class="caption-slide">
+                <h2 class="mb-3">Welcome on your cart!</h2>
+                
+                <h6>Here is the last step of your visit on our library. Do not hesitate to borrow all the books you want.</h6>
+            </div>
+           
+            <div class="col-12" class="back">
+                <div  class="carousel slide" data-ride="carousel">
+                    <br>
+                    <div class="carousel-inner" class='pad'>
+                        <!--first slide-->
+                        <div class="carousel-item active" >
+                            <div class="row">
+                              <div class="list-group-item"
+                              *ngFor="let shelf of shelves; let i = index"
+                              [class.active]="i == currentIndex"
+                              (click)="setActiveShelf(shelf, i)"
+                              class="book">
+                               <div *ngIf="shelf.email == authservice.currentUserName">
+                                  <div class="card" style="width: 15rem;" class="pad">
+                                    <img class="card-img-top" src="{{ shelf.poza }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Title: {{ shelf.title }}</h5>
+                                        <h6 class="card-text">Author: {{ shelf.author }}</h6>
+                                        <app-crud-cart
+                                            (refreshList)="refreshList()"
+                                            [book]="currentShelf"
+                                            ></app-crud-cart>
+
+                                    </div>
+                                  </div>
+                                   </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                      
+                    </div>
+                    
+                </div>
+            </div>
+        
+    
+    </div>
+   </div>
+    <div class="buttons" >
+        <p>If you want to place your order, click here ... </p>
+         <button class="btn btn-success"class="toLogin-btn" (click)="receiveOrder(shelves)">Place Order</button>
+        <button class="m-3 btn btn-sm btn-danger" (click)=" removeAllShelves()">Remove All</button>
+        <button class="m-3 btn btn-sm btn-danger" (click)=" remove(shelves)">Remove</button>
+    
+    </div>
+</section>
+
+
+
+<app-footer class=""></app-footer>

@@ -1,0 +1,115 @@
+<body>
+  <div class="submit-form" class="pt-5 pb-5" style="background-color: #f4f5f7;">
+     <div class="caption-slide"> 
+       <h3 class="titlu">My Shelf</h3>
+      
+      <p class="para">This is the place where you can add your own books that you've read
+        or to add other ones that you might like to read sometimes.
+      </p>
+    </div>
+  </div>
+
+  <div class="container" >
+    <div class="row">
+      <div class="col-sm">
+        <div class="formular-register">
+          <h2>Add a book on your shelf</h2>
+          <div> <!--ngSubmit se apeleaza cand se apasa pe submit -->
+            <div *ngIf="!submitted">
+  
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="form-group">
+                      <label for="title">Title</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="title"
+                        required
+                        [(ngModel)]="shelf.title"
+                        name="title"
+                      />
+                    </div>
+  
+                    <div class="form-group">
+                      <label for="category">Category</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="category"
+                        required
+                        [(ngModel)]="shelf.category"
+                        name="category"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="form-group">
+                      <label for="author">Author</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="author"
+                        required
+                        [(ngModel)]="shelf.author"
+                        name="author"
+                      />
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="type">Type</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="type"
+                        required
+                        [(ngModel)]="shelf.type"
+                        name="type"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <label for="about">Pick the status for your book: </label>
+                <select class="form-control form-select-lg"  [(ngModel)]="shelf.about" >
+                  <option  value="Already read">Already read</option>
+                  <option value="Goes to wishlist">Goes to wishlist</option>
+                </select>
+              </div>
+          
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <input
+                  class="form-control"
+                  id="email"
+                  required
+                  [(ngModel)]="shelf.email"
+                  name="email"
+                />
+              </div>
+  
+              <button (click)="saveShelf()" class="btn btn-success" class="toLogin-btn">Submit</button>
+            </div>  
+          
+           
+          </div>
+          <div *ngIf="submitted">
+            <h4>Your book has beed added successfully!</h4>
+            <button class="btn btn-success" (click)="newShelf()" class="toLogin-btn">Add</button>
+          </div>
+      </div>
+      </div>
+      
+      
+
+    </div>
+  </div>
+ 
+</body>
+
+<app-shelf-show></app-shelf-show>
+
+
+<app-footer></app-footer>  

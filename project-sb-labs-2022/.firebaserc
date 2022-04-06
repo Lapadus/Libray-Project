@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "project-sb-labs-2022": {
+      "hosting": {
+        "project-sb-labs-2022": [
+          "project-sb-labs-2022"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "project-sb-labs-2022"
+  }
+}

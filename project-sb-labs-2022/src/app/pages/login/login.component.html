@@ -1,0 +1,44 @@
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  </head>
+<body style="background-color: #f4f5f7; font-family: 'Montserrat', Helvetica, sans-serif;">
+    <div class="login">
+        <h1 class="titlu">Login Page</h1>
+        <p>If you have already an account you can sign in here.</p>
+        <p>Don't have an account? Go to the register page.</p>
+    </div>
+
+    <div class="formular-login" >
+        <h2>Welcome {{user.email}}</h2>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" placeholder="Email" 
+            [(ngModel)]="user.email" [ngClass]="error?'is-invalid':''" 
+            (keydown.enter)="doLogin()"/>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input class="form-control" placeholder="Password" type="password" 
+            [(ngModel)]="user.password" [ngClass]="error?'is-invalid':''" 
+            (keydown.enter)="doLogin()" />
+        </div>
+
+        <button class="btn btn-primary" 
+        (click)="doLogin()"
+        [disabled]="isNotValid()"
+        type="submit"
+        class="toRegister-btn">Login</button>
+
+        <div class="form-group">
+            <p *ngIf="errorMessage.length > 0" class="text-danger">{{errorMessage}}</p>
+        
+            <p *ngIf="error.message.length > 0" class="text-danger">{{error.message}} </p>
+
+        </div>
+
+        <button class="btn btn-success" [routerLink]="['/register']" class="toRegister-btn">Go to register page</button>
+    </div>
+</body>
+<app-footer></app-footer>

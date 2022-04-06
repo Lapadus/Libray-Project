@@ -1,0 +1,65 @@
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  </head>
+<body>
+    <div class="register">
+        <h1 class="titlu">Register Page</h1>
+        <p>If you don't have already an account you can register here.</p>
+        <p>Now you are closer to the newest online library.</p>
+    </div>
+    <!--reactive form-->
+    <div class="formular-register">
+        <h2>Register here</h2>
+        <form #RegisterForm="ngForm" [formGroup]="myForm" (ngSubmit)="doRegister()" > <!--ngSubmit se apeleaza cand se apasa pe submit -->
+            <div class="from-group">
+                <label>Last Name</label>
+                <input class="form-control"
+                formControlName="lastName"
+                [ngClass]="myForm.controls['lastName'].errors?'is-invalid':''" /> <!--punem numele variabilei din myForm ce trb verificata-->
+            </div>
+            <div class="from-group">
+                <label>First Name</label>
+                <input class="form-control"
+                [ngClass]="myForm.controls['firstName'].errors?'is-invalid':''"
+                formControlName="firstName"/>
+            </div>
+
+            <div class="from-group">
+                <label>Phone Number</label>
+                <input class="form-control" 
+                formControlName="phone" 
+                [ngClass]="myForm.controls['phone'].errors?'is-invalid':''"/>
+            </div>
+
+            <div class="from-group">
+                <label>Email</label>
+                <input class="form-control" 
+                formControlName="email" 
+                [ngClass]="myForm.controls['email'].errors?'is-invalid':''"/>
+            </div>
+        
+            <div class="from-group">
+                <label>Password</label>
+                <input class="form-control"
+                type="password"
+                formControlName="password"
+                [ngClass]="myForm.controls['password'].errors?'is-invalid':''"/>
+            </div>
+            <button class="btn btn-dark" class="toLogin-btn" 
+            type="submit"
+            [disabled]="myForm.invalid" (click)="displayName()">Register</button>
+
+            
+        </form>
+        <div class="form-group">
+            <p *ngIf="errorMessage.length > 0" class="text-danger">{{errorMessage}} </p>
+        
+            <p *ngIf="error.message.length > 0" class="text-danger">{{error.message}} </p>
+
+            <p *ngIf="message.length > 0" class="text-info">{{message}} </p>
+        </div>
+        <button class="btn btn-success" (click)="goToLogin()" class="toLogin-btn">Go to login page</button>
+    </div>
+</body>
+
+<app-footer></app-footer>

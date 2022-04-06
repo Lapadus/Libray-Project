@@ -1,0 +1,91 @@
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body> 
+  <section *ngIf = "authservice.currentUser" class="vh-100" style="background-color: #f4f5f7;font-family: 'Montserrat', Helvetica, sans-serif;
+">
+ 
+  <h2 class="title-profile">Hi! This is your profile account</h2>
+    <div class="container py-5 h-100" >
+      <div class="row d-flex justify-content-center align-items-center h-100" >
+        <div class="col col-lg-6 mb-4 mb-lg-0">
+          <div class="card mb-3" style="border-radius: .5rem;">
+            <div class="row g-0">
+              <div class="col-md-4 gradient-custom text-center text-white" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                  alt="Avatar"
+                  class="img-fluid my-5"
+                  style="width: 80px;"
+                />
+                <div *ngFor="let shelf of shelves; let i = index">
+                  <div *ngIf="shelf.email == authservice.currentUserName">
+                  <h5 class="text-muted">{{shelf.firstName}}</h5>
+                </div>
+              </div>
+                <p>Expert reader</p>
+                <p>
+                    <button class="btn btn-dark" (click)=" remove(shelves)">Edit profile</button>           
+                </p>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body p-4">
+                  <h6 style="font-weight: bolder;">Account infos</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div >
+                      <h6 style="font-weight: bolder;">Email</h6>
+                      <p class="text-muted">{{authservice.currentUserName}}</p>
+                    </div>
+                    <div >
+                      <h6 style="font-weight: bolder;">UID</h6>
+                      <p class="text-muted">{{authservice.currentUserId}}</p>
+                    </div>
+                  </div>
+                  <div *ngFor="let shelf of shelves; let i = index" 
+                  [class.active]="i == currentIndex"
+                  (click)="setActiveShelf(shelf, i)">
+                    <div *ngIf="shelf.email == authservice.currentUserName">
+                  <h6 style="font-weight: bolder;">Personal infos</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      
+                        <h6 style="font-weight: bolder;">First Name</h6>
+                        <p class="text-muted">{{shelf.firstName}}</p>
+                      </div>
+                    
+                    <div class="col-6 mb-3" >
+                    
+                      <h6 style="font-weight: bolder;">Last Name</h6>
+                      <p class="text-muted">{{shelf.lastName}}</p>
+                    </div>
+                 
+                    <div class="col-6 mb-3">
+                      
+                        <h6 style="font-weight: bolder;">Phone</h6>
+                        <p class="text-muted">{{shelf.phone}}</p>
+                      </div>
+                    
+
+                  </div>
+                  </div>
+                  </div>
+                  <div class="d-flex justify-content-start">
+                    <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                    <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                    <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+</body>
+  
+<app-footer></app-footer>

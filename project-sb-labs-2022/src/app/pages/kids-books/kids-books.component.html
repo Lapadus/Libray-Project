@@ -1,0 +1,57 @@
+<section class="pt-5 pb-5" style="background-color: #f4f5f7;">
+    
+    <div class="container">
+        <div class="row">
+            <div class="caption-slide"> 
+                <h3 class="mb-3" >Kids Books</h3>
+                <p>Here it is our kids section. If you want to find something for a kids, here you should search.</p>
+            </div>
+            <div class="back">
+            <div class="col-12" >
+                <div class="form-group"  class="srch" style="width:40%">
+                    <p>Search for your book from here: </p>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Search..."
+                      [(ngModel)]="filterTerm"
+                    />
+                  </div>
+                <div  class="carousel slide" data-ride="carousel">
+                    <br>
+                    <div class="carousel-inner" class='pad'>
+                        <div class="carousel-item active" >
+                            <div class="row">
+                              <div  class="list-group-item col-md-6 " 
+                              *ngFor="let book of books | filter: filterTerm; let i = index"
+                              [class.active]="i == currentIndex"
+                              (click)="setActiveShelf(book, i)"
+                              class="book"
+                             >
+                             <div *ngIf="book.category == 'Kids'">
+                                  <div class="card col-md-3 " style="width: 15rem;" class="pad">
+                                    <img class="card-img-top" src="{{ book.poza }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Title: {{ book.title }}</h5>
+                                        <h6 class="card-text">Author: {{ book.author }}</h6>
+                                        <p class="card-text">Category: {{ book.category }}</p>
+                                        <button  *ngIf="authservice.isUserEmailLoggedIn" (click)='getData(book)' class="btn btn-dark">Borrow</button>
+                                        <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating>
+                                    </div>
+                                  </div>
+                                </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                      
+                    </div>
+                    
+                </div>
+            </div></div>
+        </div>
+    </div>
+</section>
+
+

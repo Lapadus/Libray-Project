@@ -1,0 +1,58 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand mb-0 h1">    <img src="../../../assets/images/logo2.png" class="logo2" alt="Responsive image"/>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav nav-pills nav-fill mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/about']">About us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Books
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['/adultsPage']">Adults</a>
+            <a class="dropdown-item"[routerLink]="['/teenagersPage']">Teenagers</a>
+            <a class="dropdown-item"[routerLink]="['/kidsPage']">Kids</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" [routerLink]="['/books']">All</a>
+          </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/contact']">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/chat']">Chat</a>
+        </li>
+        <!--verrify if the user is logged in order to know if to show some pages
+        if he is not logged, i will not show him the cart page for example-->
+        <li *ngIf="!authservice.isUserEmailLoggedIn" class="nav-item">
+          <a class="nav-link"  [routerLink]="['/login']">Login</a>
+        </li>
+        <li *ngIf="!authservice.isUserEmailLoggedIn" class="nav-item">
+          <a class="nav-link" [routerLink]="['/register']">Register</a>
+        </li>
+        <li *ngIf="authservice.isUserEmailLoggedIn" class="nav-item">
+          <a class="nav-link" [routerLink]="['/shelf']">Shelf</a>
+        </li>
+        <li *ngIf="authservice.isUserEmailLoggedIn" class="nav-item">
+          <a class="nav-link" [routerLink]="['/cart']">Cart</a>
+        </li>
+        <li *ngIf="authservice.isUserEmailLoggedIn" class="nav-item">
+          <a class="nav-link" [routerLink]="['/user-profile']">Profile</a>
+        </li>
+        <li *ngIf="authservice.isUserEmailLoggedIn" (click)="authservice.signout()" class="nav-item">
+          <a class="nav-link">Logout</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </nav>

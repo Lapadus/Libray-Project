@@ -1,0 +1,28 @@
+.carousel-inner img {
+    width: 100%; 
+    margin: auto;
+    min-height:200px;
+}
+
+@media (max-width: 600px) {
+  .carousel-caption {
+    display: none; 
+  }
+}
+.caption-slide1{
+  background-color: #aa75259a;
+  color: #20190f;
+  width: 50%;
+  height: 25%;
+}
+
+.caption-slide2{
+  background-color:rgba(231, 207, 176, 0.658);
+  color: #20190f;
+  width: 70%;
+}
+.caption-slide3{
+  background-color: #aa75259a;
+  color: #20190f;
+  width: 75%;
+}

@@ -1,0 +1,95 @@
+<!--
+<section class="pt-5 pb-5" style="background-color: #f4f5f7;">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="mb-3" class="caption-slide">My List of Books</h3>
+            </div>
+
+            <div class="col-12">
+                <div  class="carousel slide" data-ride="carousel">
+                    <br>
+                    <div class="carousel-inner" class='pad'>
+                        
+                        <div class="carousel-item active" >
+                            <div class="row">
+                              <ng-container *ngFor="let shelf of shelves; let i = index"
+                              [class.active]="i == currentIndex"
+                              (click)="setActiveShelf(shelf, i)">
+                              <ng-container *ngIf="shelf.email == authservice.currentUserName">
+                
+                                  <div class="col-md-4" >
+                                    <div class="card" >
+                                        <img class="card-img-top" src="../../../assets/images/poza.jpg">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Title: {{ shelf.title }}</h5>
+                                            <h6 class="card-text">Author: {{ shelf.author }}</h6>
+                                            <p class="card-text">Book status: {{ shelf.about }}</p>
+                                            <a href="#" class="btn btn-dark" 
+                                            *ngIf="shelf.about == 'Already read'">Already read</a>
+                                            <a href="#" class="btn btn-dark" 
+                                            *ngIf="shelf.about == 'Goes to wishlist'">Want to read</a>
+                                            <a href="#" class="btn btn-dark" 
+                                            *ngIf="shelf.about != 'Already read' && shelf.about != 'Goes to wishlist'">Reminder</a>
+                                        </div>
+                                    </div>
+                                </div>
+                              </ng-container> 
+                              </ng-container>
+                              
+                            </div>
+                        </div>
+                        <p>If you want to delete your books from your personal shelf, click here!</p>
+                        <button class="m-3 btn btn-sm btn-danger" style="color: dark;" (click)="removeAllShelves()">Delete all</button>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+-->
+<div class="list row" style="background-color: #f4f5f7; padding-bottom: 20px;">
+    <div class="col-md-6">
+        <h3 class="mb-3" class="caption-slide">My List of Books</h3>
+        <br>
+        <div class="list-group" >
+        <div
+          class="list-group-item"
+          *ngFor="let shelf of shelves; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveShelf(shelf, i)"
+          class="book"
+        >
+        
+        <div class="col-md-4" style="width: 50%; margin: auto; ">
+            <div class="card" style="width: 120%;">
+                <img class="card-img-top" src="../../../assets/images/poza.jpg">
+                <div class="card-body">
+                    <h5 class="card-title">Title: {{ shelf.title }}</h5>
+                    <h6 class="card-text">Author: {{ shelf.author }}</h6>
+                    <h6 class="card-text">Book status: {{ shelf.about }}</h6>
+                </div>
+            </div>
+            <br>
+        </div>
+
+    </div>
+</div>
+    </div>
+    <div class="col-md-6">
+      <div >
+        <app-crud-shelf
+          (refreshList)="refreshList()"
+          [book]="currentShelf"
+        ></app-crud-shelf>
+      </div>
+    <div >
+        
+       
+
+      </div>
+    </div>
+  </div>
+  

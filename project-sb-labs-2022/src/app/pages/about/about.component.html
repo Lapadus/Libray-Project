@@ -1,0 +1,59 @@
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body>
+  <div class="about-section">
+    <div class="caption-slide">
+      <h1 class="title-about">About Us</h1>
+      
+    </div>
+      <p>Our team created this site in order to make it more efficiant. Life is too short to waste
+          your time, so here is our mission. We want to help you to save your time and invest it
+          in other activities.
+      </p>
+      <p>Our online library reduces time spent on your way to come here and go back home, now
+          you are just a click away to find out everything about your favorite book, or about your 
+          favorites authors.
+      </p>
+      <p>Here are some quick infos about where and when you can find us: </p>
+  </div>
+    
+    <h2 style="text-align:center; text-decoration: underline;">Infos</h2>
+    <div class="row" style="background-color: #f4f5f7;">
+      <div class="column">
+        <div class="card">
+          <img src="../../../assets/images/map.png" alt="Responsive image" />
+          <div class="container">
+            <h2>Location</h2>
+            <p class="title">Street 56th Rue des Enfants</p>
+            <p><a href="https://www.google.com/maps"><button class="button">Go to maps</button></a></p>
+          </div>
+        </div>
+      </div>
+    
+      <div class="column" >
+        <div class="card">
+          <img src="../../../assets/images/program.png" alt="Responsive image"/>
+          <div class="container">
+            <h2>Program</h2>
+            <p class="title">L-V: 10:00-20:00</p>
+            <p class="title">S-D: Closed</p>
+            <hr class="hr">
+          </div>
+        </div>
+      </div>
+    
+      <div class="column">
+        <div class="card">
+          <img src="../../../assets/images/team.png" alt="Responsive image"/>
+          <div class="container">
+            <h2>Team</h2>
+            <p class="title">We grow with your help. Thank you!</p>
+            <p><button class="button" [routerLink]="['/contact']">Contact</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+<app-footer></app-footer>
