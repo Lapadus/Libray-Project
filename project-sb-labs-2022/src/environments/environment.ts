@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   firebase : {
-  //here should be the key
+    //here should be the key for firebase
   },
   baseURL: 'https://covid-api.mmediagroup.fr/v1'
 

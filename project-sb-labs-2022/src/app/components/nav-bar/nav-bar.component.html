@@ -28,9 +28,7 @@
         <li class="nav-item">
             <a class="nav-link" [routerLink]="['/contact']">Contact</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/chat']">Chat</a>
-        </li>
+        
         <!--verrify if the user is logged in order to know if to show some pages
         if he is not logged, i will not show him the cart page for example-->
         <li *ngIf="!authservice.isUserEmailLoggedIn" class="nav-item">
